@@ -26,7 +26,6 @@ class TaxCalculator
     batched_income = []
     income_left_to_tax = income
       @rates.each_with_index do |rate, index|
-      puts(index, @rates.length)  
       if index == @rates.length - 1
         batched_income.push(income - current_rate)
         return batched_income
