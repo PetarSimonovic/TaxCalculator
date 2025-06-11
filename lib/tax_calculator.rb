@@ -25,16 +25,21 @@ class TaxCalculator
   end
 
   def batch_income(income)
-    current_rate = 0
+    previous_threshold = 0
     batched_income = []
       @rates.each_with_index do |rate, index|
-      if index == @rates.length - 1 || income < rate[:income_threshold]
-        batched_income.push(income - current_rate)
+      current_threshold = rate[:income_threshold]
+      if batching_finished?(index, income, current_threshold)
+        batched_income.push(income - previous_threshold)
         return batched_income
       else
-          batched_income.push(rate[:income_threshold] - current_rate)
-          current_rate = rate[:income_threshold]
+          batched_income.push(current_threshold - previous_threshold)
+          previous_threshold = current_threshold
       end
     end
+  end
+
+  def batching_finished?(index, income, income_threshold)
+      index == @rates.length - 1 || income < income_threshold
   end
 end

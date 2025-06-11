@@ -24,7 +24,7 @@ RSpec.describe TaxCalculator do
   end
 
 
-  it 'calculates tax correctly for $220,000' do
+  it 'calculatesd tax correctly for $220,000' do
     tax_calculator = TaxCalculator.new(rates)
     expect(tax_calculator.calculate(220000)).to eq(64877.50)
   end
