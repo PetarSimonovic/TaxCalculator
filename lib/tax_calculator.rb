@@ -25,8 +25,8 @@ class TaxCalculator
         return total_tax
       else
         amount = current_threshold - previous_threshold
-          total_tax += calculate_at_rate(amount, band[:rate])
-          previous_threshold = current_threshold
+        total_tax += calculate_at_rate(amount, band[:rate])
+        previous_threshold = current_threshold
       end
     end
   end
