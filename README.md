@@ -57,7 +57,7 @@ Instantiate the calculator with the bands:
 calc = TaxCalculator.new(bands)
 ```
 
-`TaxCalculator` has one method, `calculate`, that accepts an income value and returns the tax payable on it:
+`TaxCalculator` has one public method, `calculate`, that accepts an income value and returns the tax payable on it:
 
 ```ruby
 calc.calculate(600000)
